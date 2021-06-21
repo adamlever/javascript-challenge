@@ -15,14 +15,13 @@ function resetTable() {
   // Clear any current data
   clearTable()
 
-  // Clear the filter inputs
-  var inputs = d3.select("#datetime");
-  inputs.value = "";
-  // for(var i=0;i<inputs.length;i++)
-  //     inputs[i].value = "";
+  // Clear input values
+  document.querySelector("#datetime").value = '';
+  document.querySelector("#city").value = '';
+  document.querySelector("#state").value = '';
+  document.querySelector("#country").value = '';
+  document.querySelector("#shape").value = '';
   
-  console.log(inputs)
-
   // Reset the tableData to the source data from data.js
   var tableData = data;
 
@@ -111,7 +110,8 @@ function filterTable() {
     }
 
     // Print the filter object to the console
-    console.log(filterValues)
+    console.log("Object to be filtered- "); 
+    console.log(filterValues);
 
     // Filter the data by the filter object
     Object.entries(filterValues).forEach(function([key, value]){
@@ -119,7 +119,8 @@ function filterTable() {
     })
 
     // Print the filter data to the console
-    console.log(tableData)
+    console.log("Data to be filtered- "); 
+    console.log(tableData);
 
     // Run the function to populate the table with the filter data
     populateTable()
