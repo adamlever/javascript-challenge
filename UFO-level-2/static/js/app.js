@@ -122,6 +122,15 @@ function filterTable() {
     console.log("Data to be filtered- "); 
     console.log(tableData);
 
-    // Run the function to populate the table with the filter data
+    // Run the function to populate the table with the filter data if there is data to populate
+    if (tableData.length !== 0) { 
     populateTable()
+    }
+      // If there is no data for filtered values 
+      else {
+      tbody.append("tr").append("td").text(""); 
+      tbody.append("tr").append("td").text("No UFO reports for filtered values, don't worry, 'The Truth is Still Out There'"); 
+      tbody.append("tr").append("td").text(""); 
+      tbody.append("tr").append("td").text("....although I doubt it is");   
+    }   
 }
