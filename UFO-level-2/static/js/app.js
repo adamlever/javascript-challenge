@@ -52,6 +52,7 @@ function populateTable() {
       cell.text(value);
     });
   });
+  
 }
 
 // Select the buttons
@@ -70,7 +71,7 @@ function filterTable() {
 
     // Clear the table
     clearTable()
- 
+
     // Get the value of the users inputs and if necessary convert strings to lower case
     var dateValue = d3.select("#datetime").property("value")
     var cityValue = d3.select("#city").property("value").toLowerCase()
@@ -125,6 +126,9 @@ function filterTable() {
     // Run the function to populate the table with the filter data if there is data to populate
     if (tableData.length !== 0) { 
     populateTable()
+    
+    // Reset tableData to original source data from data.js
+    tableData = data;
     }
       // If there is no data for filtered values 
       else {
@@ -132,5 +136,8 @@ function filterTable() {
       tbody.append("tr").append("td").text("No UFO reports for filtered values, don't worry, 'The Truth is Still Out There'"); 
       tbody.append("tr").append("td").text(""); 
       tbody.append("tr").append("td").text("....although I doubt it is");   
-    }   
+
+      // Reset tableData to original source data from data.js
+      tableData = data;
+      }
 }
